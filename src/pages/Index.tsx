@@ -4,408 +4,449 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { 
-  Cpu, 
-  Shield, 
-  Zap, 
-  Globe, 
-  Lock, 
-  TrendingUp, 
-  Users, 
-  Mail,
-  Linkedin,
-  Github,
-  MessageSquare,
-  Download,
-  ArrowRight,
-  Check,
-  Server,
-  Usb,
-  Network
-} from "lucide-react";
+import { Menu, X, Cpu, Shield, Zap, Globe, Rocket, Users, TrendingUp, Download } from "lucide-react";
+import logoImage from "@/assets/onebit-logo.jpg";
 
 const Index = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    organization: "",
-    message: ""
-  });
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    element?.scrollIntoView({ behavior: "smooth" });
+    setIsMenuOpen(false);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
       title: "Message Sent!",
-      description: "We'll get back to you within 24 hours.",
+      description: "We'll get back to you soon.",
     });
-    setFormData({ name: "", email: "", organization: "", message: "" });
-  };
-
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 backdrop-blur-lg bg-background/80 border-b border-border">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="text-2xl font-mono font-bold text-gradient">
-              OneBit AI
+      <nav className="fixed top-0 w-full z-50 border-b-4 border-foreground bg-background">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-20">
+            <div className="flex items-center gap-3">
+              <img src={logoImage} alt="OneBit AI" className="h-12 w-auto pixelated" />
             </div>
-            <div className="hidden md:flex items-center gap-8">
-              <button onClick={() => scrollToSection("about")} className="text-sm hover:text-primary transition-colors">About</button>
-              <button onClick={() => scrollToSection("products")} className="text-sm hover:text-primary transition-colors">Products</button>
-              <button onClick={() => scrollToSection("technology")} className="text-sm hover:text-primary transition-colors">Technology</button>
-              <button onClick={() => scrollToSection("roadmap")} className="text-sm hover:text-primary transition-colors">Roadmap</button>
-              <button onClick={() => scrollToSection("investors")} className="text-sm hover:text-primary transition-colors">Investors</button>
-              <Button onClick={() => scrollToSection("contact")} size="sm" className="bg-primary hover:bg-primary/90">
-                Contact
-              </Button>
+            
+            <div className="hidden md:flex items-center gap-1 text-xs">
+              {["about", "products", "tech", "roadmap", "investors", "contact"].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(item)}
+                  className="px-4 py-2 hover:bg-primary hover:text-background transition-colors border-2 border-transparent hover:border-foreground uppercase"
+                >
+                  {item}
+                </button>
+              ))}
             </div>
+
+            <button
+              className="md:hidden p-2 border-2 border-foreground"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
         </div>
+
+        {isMenuOpen && (
+          <div className="md:hidden border-t-4 border-foreground bg-card">
+            {["about", "products", "tech", "roadmap", "investors", "contact"].map((item) => (
+              <button
+                key={item}
+                onClick={() => scrollToSection(item)}
+                className="block w-full text-left px-6 py-4 text-sm hover:bg-primary hover:text-background border-b-2 border-foreground uppercase"
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-radial from-primary/10 via-transparent to-transparent animate-pulse opacity-40" />
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(199, 89%, 48%, 0.15) 1px, transparent 0)',
-          backgroundSize: '50px 50px'
-        }} />
+      <section className="min-h-screen flex items-center justify-center relative pt-20 px-4">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-10 w-32 h-32 border-4 border-primary animate-float"></div>
+          <div className="absolute bottom-20 right-10 w-24 h-24 border-4 border-accent animate-float" style={{ animationDelay: '0.5s' }}></div>
+          <div className="absolute top-40 right-20 w-16 h-16 border-4 border-secondary animate-float" style={{ animationDelay: '1s' }}></div>
+        </div>
         
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center animate-fade-in-up">
-            <h1 className="text-6xl md:text-8xl font-display font-bold mb-6 text-gradient glow-text">
-              Offline Intelligence.
-              <br />
-              Infinite Possibilities.
+        <div className="container mx-auto text-center z-10 space-y-8">
+          <div className="inline-block retro-box p-8 animate-fade-in">
+            <h1 className="text-3xl md:text-5xl lg:text-7xl font-display mb-6 pixel-text uppercase leading-relaxed">
+              Offline Intelligence.<br />Infinite Possibilities.
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto">
-              Portable, secure AI devices for individuals, developers, and institutions.
-              <br />
-              <span className="text-primary">Run powerful AI models locally</span> — without cloud dependency.
+            <p className="text-sm md:text-base lg:text-lg max-w-3xl mx-auto mb-8 leading-relaxed">
+              Portable, secure AI devices for individuals, developers, and institutions. India's indigenous edge AI revolution.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Button
                 onClick={() => scrollToSection("products")}
-                className="bg-primary hover:bg-primary/90 text-lg px-8 py-6 shadow-lg hover:shadow-primary/50 transition-all"
+                size="lg"
+                className="retro-button bg-primary text-background font-bold text-sm px-8 py-6 uppercase"
               >
-                View Products
-                <ArrowRight className="ml-2 h-5 w-5" />
+                View Products ▶
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline"
+              <Button
                 onClick={() => scrollToSection("investors")}
-                className="border-primary text-primary hover:bg-primary/10 text-lg px-8 py-6"
+                size="lg"
+                variant="outline"
+                className="retro-button bg-background text-foreground font-bold text-sm px-8 py-6 uppercase"
               >
-                <Download className="mr-2 h-5 w-5" />
                 Investor Deck
               </Button>
             </div>
           </div>
+          
+          <div className="text-xs opacity-50 animate-blink">▼ SCROLL DOWN ▼</div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-card/30">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-gradient">
-              About OneBit AI
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              OneBit AI builds <span className="text-primary font-semibold">indigenous, hardware-optimized AI systems</span> capable 
-              of running large models locally — ensuring security, privacy, and sovereignty in AI inference.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Our vision is to enable <span className="text-secondary font-semibold">defense, healthcare, and enterprise</span> users 
-              with offline AI compute that never compromises on performance or data security.
-            </p>
-          </div>
+      <section id="about" className="py-20 px-4 border-t-4 border-foreground">
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-5xl font-display text-center mb-12 pixel-text uppercase">
+            [ About OneBit AI ]
+          </h2>
+          
+          <div className="max-w-4xl mx-auto space-y-8">
+            <Card className="retro-box p-6 animate-fade-in">
+              <CardContent className="text-sm md:text-base leading-relaxed space-y-4 pt-6">
+                <p>
+                  OneBit AI is an indigenous artificial intelligence company pioneering ultra-efficient low-bit and edge-based AI systems in India. Our core mission is to democratise access to AI by developing locally manufactured, self-contained AI devices and low-bit large language models (LLMs) that operate without reliance on external cloud infrastructure.
+                </p>
+                <p>
+                  Unlike conventional models that depend on massive GPU clusters and centralised data centres, OneBit AI focuses on quantised models and hardware-optimised local inference, ensuring privacy, data sovereignty, and national AI independence.
+                </p>
+              </CardContent>
+            </Card>
 
-          <div className="grid md:grid-cols-3 gap-8 mt-16 max-w-5xl mx-auto">
-            {[
-              { icon: Shield, title: "Privacy First", desc: "Your data never leaves your device. Zero cloud dependency." },
-              { icon: Zap, title: "Edge Computing", desc: "Ultra-low latency with on-device inference at the edge." },
-              { icon: Lock, title: "Sovereign AI", desc: "Indigenous hardware for national security applications." }
-            ].map((item, idx) => (
-              <Card key={idx} className="bg-card border-border hover:border-primary/50 transition-all card-glow hover:scale-105">
-                <CardHeader>
-                  <item.icon className="h-12 w-12 text-primary mb-4" />
-                  <CardTitle className="text-xl font-display">{item.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{item.desc}</p>
-                </CardContent>
-              </Card>
-            ))}
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                { icon: Shield, title: "Privacy First", desc: "Complete offline operation. Your data never leaves your device." },
+                { icon: Zap, title: "Ultra Efficient", desc: "1.58-bit quantisation for maximum performance on minimal hardware." },
+                { icon: Globe, title: "Indigenous", desc: "100% Made in India. Data sovereignty and national AI independence." },
+              ].map((feature, i) => (
+                <Card key={i} className="retro-box p-4 hover:translate-y-[-4px] transition-transform">
+                  <CardContent className="pt-6 text-center">
+                    <feature.icon className="w-12 h-12 mx-auto mb-4 text-primary" strokeWidth={3} />
+                    <h3 className="text-lg font-bold mb-2 uppercase">{feature.title}</h3>
+                    <p className="text-xs leading-relaxed">{feature.desc}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Products Section */}
-      <section id="products" className="py-20">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-4 text-gradient">
-              Our Products
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Three powerful solutions for offline AI, from portable USB to enterprise LAN hubs
-            </p>
-          </div>
+      <section id="products" className="py-20 px-4 border-t-4 border-foreground bg-card">
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-5xl font-display text-center mb-12 pixel-text uppercase">
+            [ Product Lineup ]
+          </h2>
 
           <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {[
-              {
-                name: "OneBit AIR",
-                subtitle: "USB",
-                icon: Usb,
-                desc: "Plug-and-play offline AI on user's machine",
-                features: [
-                  "Document/PDF summarisation",
-                  "Multilingual support",
-                  "Text & code generation",
-                  "Zero cloud dependency"
-                ],
-                price: "₹60,000 – ₹1,00,000"
-              },
-              {
-                name: "OneBit PRO",
-                subtitle: "PCB",
-                icon: Cpu,
-                desc: "Integrated onboard compute for higher performance",
-                features: [
-                  "10× faster inference",
-                  "Secure & private compute",
-                  "Plug-and-play setup",
-                  "Includes all AIR features"
-                ],
-                price: "₹1,00,000 – ₹3,00,000",
-                featured: true
-              },
-              {
-                name: "OneBit MAX",
-                subtitle: "LAN",
-                icon: Network,
-                desc: "On-premise AI hub for multi-device use",
-                features: [
-                  "Vision AI capabilities",
-                  "Satellite/surveillance analysis",
-                  "Up to 60fps generation",
-                  "Team server deployment"
-                ],
-                price: "₹10,00,000 – ₹20,00,000"
-              }
-            ].map((product, idx) => (
-              <Card 
-                key={idx} 
-                className={`bg-card border-border hover:border-primary transition-all group hover:scale-105 ${
-                  product.featured ? 'border-primary shadow-lg shadow-primary/20' : ''
-                }`}
-              >
-                <CardHeader>
-                  <div className="flex items-center justify-between mb-4">
-                    <product.icon className="h-16 w-16 text-primary group-hover:scale-110 transition-transform" />
-                    {product.featured && (
-                      <span className="bg-primary/20 text-primary text-xs px-3 py-1 rounded-full font-semibold">
-                        Popular
-                      </span>
-                    )}
+            {/* OneBit AIR */}
+            <Card className="retro-box p-6 hover:translate-y-[-4px] transition-transform">
+              <CardHeader>
+                <div className="w-16 h-16 border-4 border-primary bg-background flex items-center justify-center mb-4">
+                  <Cpu className="w-8 h-8 text-primary" strokeWidth={3} />
+                </div>
+                <CardTitle className="text-2xl font-display uppercase">OneBit AIR</CardTitle>
+                <CardDescription className="text-xs">USB Plug-and-Play Model</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4 text-sm">
+                <p className="leading-relaxed">
+                  Portable, low-power AI unit offering offline text, image, and code generation. Runs on user's computing power.
+                </p>
+                <div className="space-y-2 text-xs">
+                  <div className="flex items-start gap-2">
+                    <span className="text-primary">▸</span>
+                    <span>Document/PDF summarisation</span>
                   </div>
-                  <CardTitle className="text-2xl font-display">
-                    {product.name}
-                    <span className="block text-sm text-muted-foreground mt-1 font-mono">({product.subtitle})</span>
-                  </CardTitle>
-                  <CardDescription className="text-base mt-2">{product.desc}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3 mb-6">
-                    {product.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm">
-                        <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="border-t border-border pt-4">
-                    <p className="text-2xl font-bold text-primary mb-4">{product.price}</p>
-                    <Button className="w-full bg-primary hover:bg-primary/90" onClick={() => scrollToSection("contact")}>
-                      Request Info
-                    </Button>
+                  <div className="flex items-start gap-2">
+                    <span className="text-primary">▸</span>
+                    <span>Multilingual support</span>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
+                  <div className="flex items-start gap-2">
+                    <span className="text-primary">▸</span>
+                    <span>Text & code generation</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-primary">▸</span>
+                    <span>Zero cloud dependency</span>
+                  </div>
+                </div>
+                <div className="pt-4 border-t-2 border-foreground">
+                  <p className="text-accent font-bold text-lg">₹60,000 - ₹1,00,000</p>
+                  <p className="text-xs opacity-70">+ Support: ₹15k-50k/year</p>
+                </div>
+                <Button className="w-full retro-button bg-primary text-background font-bold uppercase text-xs">
+                  Learn More ▶
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* OneBit PRO */}
+            <Card className="retro-box p-6 border-accent hover:translate-y-[-4px] transition-transform">
+              <CardHeader>
+                <div className="w-16 h-16 border-4 border-accent bg-background flex items-center justify-center mb-4">
+                  <Zap className="w-8 h-8 text-accent" strokeWidth={3} />
+                </div>
+                <CardTitle className="text-2xl font-display uppercase text-accent">OneBit PRO</CardTitle>
+                <CardDescription className="text-xs">PCB-Based Integrated Compute</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4 text-sm">
+                <p className="leading-relaxed">
+                  Integrated onboard compute for higher performance. Independent of user's computer with dedicated processing power.
+                </p>
+                <div className="space-y-2 text-xs">
+                  <div className="flex items-start gap-2">
+                    <span className="text-accent">▸</span>
+                    <span>10× faster inference than AIR</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-accent">▸</span>
+                    <span>Secure & private by design</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-accent">▸</span>
+                    <span>All AIR features included</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-accent">▸</span>
+                    <span>Rugged, customisable models</span>
+                  </div>
+                </div>
+                <div className="pt-4 border-t-2 border-foreground">
+                  <p className="text-accent font-bold text-lg">₹1,00,000 - ₹3,00,000</p>
+                  <p className="text-xs opacity-70">+ Support: ₹1L-2L/year</p>
+                </div>
+                <Button className="w-full retro-button bg-accent text-background font-bold uppercase text-xs border-accent">
+                  Learn More ▶
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* OneBit MAX */}
+            <Card className="retro-box p-6 border-secondary hover:translate-y-[-4px] transition-transform">
+              <CardHeader>
+                <div className="w-16 h-16 border-4 border-secondary bg-background flex items-center justify-center mb-4">
+                  <Rocket className="w-8 h-8 text-secondary" strokeWidth={3} />
+                </div>
+                <CardTitle className="text-2xl font-display uppercase text-secondary">OneBit MAX</CardTitle>
+                <CardDescription className="text-xs">LAN-Based Enterprise Server</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4 text-sm">
+                <p className="leading-relaxed">
+                  On-premise AI hub for multi-device use. Vision AI, satellite/surveillance image analysis, team server.
+                </p>
+                <div className="space-y-2 text-xs">
+                  <div className="flex items-start gap-2">
+                    <span className="text-secondary">▸</span>
+                    <span>Vision AI capabilities</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-secondary">▸</span>
+                    <span>Satellite/surveillance analysis</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-secondary">▸</span>
+                    <span>Up to 60fps generation</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-secondary">▸</span>
+                    <span>Multi-user collaboration</span>
+                  </div>
+                </div>
+                <div className="pt-4 border-t-2 border-foreground">
+                  <p className="text-secondary font-bold text-lg">₹10,00,000 - ₹20,00,000</p>
+                  <p className="text-xs opacity-70">+ Support: ₹1L-2L/year</p>
+                </div>
+                <Button className="w-full retro-button bg-secondary text-background font-bold uppercase text-xs border-secondary">
+                  Learn More ▶
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
       {/* Technology Section */}
-      <section id="technology" className="py-20 bg-card/30">
-        <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-16 animate-fade-in">
-              <h2 className="text-4xl md:text-5xl font-display font-bold mb-4 text-gradient">
-                Technology
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Cutting-edge quantization research meets indigenous hardware development
-              </p>
-            </div>
+      <section id="tech" className="py-20 px-4 border-t-4 border-foreground">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl md:text-5xl font-display text-center mb-12 pixel-text uppercase">
+            [ Technology Stack ]
+          </h2>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              <Card className="bg-card border-border hover:border-primary/50 transition-all">
-                <CardHeader>
-                  <Server className="h-12 w-12 text-primary mb-4" />
-                  <CardTitle className="text-xl font-display">Quantized Model Research</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Our proprietary quantization technology compresses models from FP16 to <span className="text-primary font-semibold">1.58-bit format</span>, 
-                    enabling powerful AI inference on resource-constrained devices.
-                  </p>
-                  <ul className="space-y-2 text-sm">
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-primary" />
-                      90% reduction in model size
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-primary" />
-                      Minimal accuracy loss
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-primary" />
-                      10× faster inference
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card className="retro-box p-6">
+              <CardHeader>
+                <CardTitle className="text-xl uppercase flex items-center gap-2">
+                  <Cpu className="w-6 h-6 text-primary" />
+                  1.58-Bit Quantisation
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm leading-relaxed space-y-3">
+                <p>
+                  OneBit AI is advancing model quantisation research, pushing precision formats from FP16 to ultra-low-bit architectures (as low as 1.58-bit) without significant performance loss.
+                </p>
+                <p>
+                  This enables energy-efficient, edge-ready AI that can operate on affordable hardware, making AI accessible to everyone.
+                </p>
+              </CardContent>
+            </Card>
 
-              <Card className="bg-card border-border hover:border-primary/50 transition-all">
-                <CardHeader>
-                  <Globe className="h-12 w-12 text-primary mb-4" />
-                  <CardTitle className="text-xl font-display">Indigenous Hardware R&D</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Strategic partnerships with Indian semiconductor manufacturers to create <span className="text-primary font-semibold">sovereign AI hardware</span> 
-                    for national security and enterprise applications.
-                  </p>
-                  <ul className="space-y-2 text-sm">
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-primary" />
-                      Made in India initiative
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-primary" />
-                      Defense-grade security
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-primary" />
-                      Supply chain independence
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
+            <Card className="retro-box p-6">
+              <CardHeader>
+                <CardTitle className="text-xl uppercase flex items-center gap-2">
+                  <Shield className="w-6 h-6 text-accent" />
+                  Indigenous R&D
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm leading-relaxed space-y-3">
+                <p>
+                  Collaboration with Indian hardware labs and semiconductor research centres to design AI accelerators and chips that are indigenously manufacturable and scalable.
+                </p>
+                <p>
+                  Building India's first self-reliant AI hardware and software stack, reducing dependency on foreign infrastructure.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="retro-box p-6">
+              <CardHeader>
+                <CardTitle className="text-xl uppercase flex items-center gap-2">
+                  <Zap className="w-6 h-6 text-secondary" />
+                  Edge Computing
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm leading-relaxed space-y-3">
+                <p>
+                  Privacy-first AI with complete offline operation. All processing happens locally on your device, ensuring data sovereignty and security.
+                </p>
+                <p>
+                  No cloud dependency means no data leaks, no surveillance, and complete control over your AI operations.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="retro-box p-6">
+              <CardHeader>
+                <CardTitle className="text-xl uppercase flex items-center gap-2">
+                  <Globe className="w-6 h-6 text-primary" />
+                  Multimodal AI
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm leading-relaxed space-y-3">
+                <p>
+                  Developing specialized multimodal agents — Vision AI, Speech AI, and Code AI — enabling perception, automation, and intelligence at the edge.
+                </p>
+                <p>
+                  Future roadmap includes multilingual speech processing, coding agents, and advanced vision systems.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
       {/* Roadmap Section */}
-      <section id="roadmap" className="py-20">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-4 text-gradient">
-              Development Roadmap
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              From prototype to nationwide deployment
-            </p>
-          </div>
+      <section id="roadmap" className="py-20 px-4 border-t-4 border-foreground bg-card">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl md:text-5xl font-display text-center mb-12 pixel-text uppercase">
+            [ Execution Roadmap ]
+          </h2>
 
-          <div className="max-w-4xl mx-auto space-y-8">
+          <div className="space-y-6">
             {[
               {
                 phase: "Phase I",
-                timeline: "0–6 months",
-                title: "Pilot & Validation",
+                timeline: "0-6 Months",
+                title: "Prototype & Pilot",
+                color: "primary",
                 items: [
-                  "USB prototype pilots in ministries",
-                  "Hospital deployment trials",
-                  "Feedback integration & refinement"
+                  "Develop OneBit AIR (USB) and PRO (PCB) prototypes",
+                  "Execute pilots in Defence, Government offices",
+                  "Build partnerships with NIC, ISRO, Defence Labs",
+                  "Establish consumer base in strategic institutions",
                 ]
               },
               {
                 phase: "Phase II",
-                timeline: "6–12 months",
-                title: "Strategic Deployment",
+                timeline: "6-12 Months",
+                title: "Infrastructure & Model Development",
+                color: "accent",
                 items: [
-                  "DRDO integration partnerships",
-                  "ISRO satellite analysis systems",
-                  "Defense command unit rollout"
+                  "Set up indigenous GPU/CPU compute clusters",
+                  "Initiate OneBit Core (1.58-bit LLM) development",
+                  "Collaborate with IIT labs for hardware integration",
+                  "Begin R&D on Vision AI, Speech AI, Code AI",
                 ]
               },
               {
                 phase: "Phase III",
-                timeline: "Year 2",
-                title: "Scale Production",
+                timeline: "Year 2-3",
+                title: "Scale & Integration",
+                color: "secondary",
                 items: [
-                  "Armed forces wide deployment",
-                  "Public sector bank integration",
-                  "PSU hospital networks"
+                  "Mass-produce OneBit Pro and Max",
+                  "Establish OneBit AI Research Labs",
+                  "Pilot integrations in defence systems, PSU banks",
+                  "Launch OneBit Developer SDK",
                 ]
               },
               {
                 phase: "Phase IV",
-                timeline: "Years 3–4",
-                title: "Advanced Features",
+                timeline: "Year 3-4",
+                title: "Advanced Systems",
+                color: "primary",
                 items: [
-                  "Vision AI capabilities",
-                  "Multilingual speech processing",
-                  "Autonomous coding agents"
+                  "Integrate 1.58-bit LLMs into consumer hardware",
+                  "Partner with STPI, BEL, DRDO for chip co-design",
+                  "Develop multilingual Vision & Speech AI",
+                  "Begin international pilot exports",
                 ]
               },
               {
                 phase: "Phase V",
                 timeline: "Year 5+",
                 title: "Global Expansion",
+                color: "accent",
                 items: [
-                  "Export to friendly nations",
-                  "Strategic AI partnerships",
-                  "International defense contracts"
+                  "Full-scale export to allied markets",
+                  "Strategic partnerships with national data centres",
+                  "Launch open research initiatives",
+                  "Establish India as sovereign AI leader",
                 ]
-              }
-            ].map((phase, idx) => (
-              <Card key={idx} className="bg-card border-border hover:border-primary/50 transition-all group">
-                <CardHeader>
-                  <div className="flex items-start gap-4">
-                    <div className="bg-primary/20 text-primary px-4 py-2 rounded-lg font-mono font-bold text-sm group-hover:bg-primary/30 transition-colors">
-                      {phase.phase}
-                    </div>
-                    <div className="flex-1">
-                      <CardTitle className="text-xl font-display mb-1">{phase.title}</CardTitle>
-                      <CardDescription className="text-sm">{phase.timeline}</CardDescription>
-                    </div>
+              },
+            ].map((phase, i) => (
+              <Card key={i} className={`retro-box p-6 border-${phase.color}`}>
+                <div className="flex flex-col md:flex-row gap-6">
+                  <div className={`md:w-48 shrink-0 border-4 border-${phase.color} bg-background p-4 text-center`}>
+                    <div className={`text-${phase.color} font-bold text-xl mb-2`}>{phase.phase}</div>
+                    <div className="text-xs opacity-70">{phase.timeline}</div>
+                    <div className="mt-2 text-sm font-bold uppercase">{phase.title}</div>
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {phase.items.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm">
-                        <ArrowRight className="h-4 w-4 text-primary flex-shrink-0 mt-1" />
-                        <span className="text-muted-foreground">{item}</span>
-                      </li>
+                  <div className="flex-1 space-y-2">
+                    {phase.items.map((item, j) => (
+                      <div key={j} className="flex items-start gap-2 text-sm">
+                        <span className={`text-${phase.color} shrink-0`}>▸</span>
+                        <span className="leading-relaxed">{item}</span>
+                      </div>
                     ))}
-                  </ul>
-                </CardContent>
+                  </div>
+                </div>
               </Card>
             ))}
           </div>
@@ -413,222 +454,210 @@ const Index = () => {
       </section>
 
       {/* Investors Section */}
-      <section id="investors" className="py-20 bg-card/30">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-4 text-gradient">
-              For Investors
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Join us in building the future of sovereign AI
-            </p>
-          </div>
+      <section id="investors" className="py-20 px-4 border-t-4 border-foreground">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl md:text-5xl font-display text-center mb-12 pixel-text uppercase">
+            [ Investment Opportunity ]
+          </h2>
 
-          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
-            <Card className="bg-card border-border">
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <Card className="retro-box p-6">
               <CardHeader>
-                <TrendingUp className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-2xl font-display">Investment Opportunity</CardTitle>
+                <CardTitle className="text-xl uppercase flex items-center gap-2">
+                  <TrendingUp className="w-6 h-6 text-primary" />
+                  Market Opportunity
+                </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <p className="text-sm text-muted-foreground">Equity Offering</p>
-                  <p className="text-3xl font-bold text-primary">4% for ₹40L</p>
-                  <p className="text-sm text-muted-foreground mt-1">Pre-seed valuation: ₹10 Crore</p>
-                </div>
-                <div className="border-t border-border pt-4">
-                  <p className="font-semibold mb-2">Capital Deployment:</p>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-                      Infrastructure setup & lab equipment
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-                      Prototype development & testing
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-                      R&D team expansion
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-                      Strategic partnerships & pilots
-                    </li>
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-card border-border">
-              <CardHeader>
-                <Users className="h-12 w-12 text-primary mb-4" />
-                <CardTitle className="text-2xl font-display">Market Potential</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <p className="text-sm text-muted-foreground mb-3">Target Markets:</p>
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm">Defense & Government</span>
-                      <span className="text-primary font-semibold">₹500Cr+</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm">Healthcare & PSUs</span>
-                      <span className="text-primary font-semibold">₹300Cr+</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm">Banking & Finance</span>
-                      <span className="text-primary font-semibold">₹200Cr+</span>
-                    </div>
+              <CardContent className="space-y-4 text-sm">
+                <div className="space-y-3">
+                  <div className="border-2 border-foreground p-3">
+                    <div className="text-xs opacity-70 mb-1">Total Addressable Market (TAM)</div>
+                    <div className="font-bold text-primary text-lg">₹6,000-15,000 Cr</div>
+                    <div className="text-xs opacity-70">~US$720M - US$1.8B</div>
+                  </div>
+                  <div className="border-2 border-foreground p-3">
+                    <div className="text-xs opacity-70 mb-1">Serviceable Available Market (SAM)</div>
+                    <div className="font-bold text-accent text-lg">₹600-1,500 Cr</div>
+                    <div className="text-xs opacity-70">~US$70M - US$180M (3 years)</div>
                   </div>
                 </div>
-                <div className="border-t border-border pt-4">
-                  <Button className="w-full bg-primary hover:bg-primary/90" size="lg">
-                    <Download className="mr-2 h-5 w-5" />
-                    Download Investor Deck
-                  </Button>
+                <p className="leading-relaxed pt-2">
+                  Target sectors: Defence, Government, PSU Banks, Healthcare, Education, and Export markets.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="retro-box p-6 border-accent">
+              <CardHeader>
+                <CardTitle className="text-xl uppercase flex items-center gap-2">
+                  <Users className="w-6 h-6 text-accent" />
+                  Investment Details
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4 text-sm">
+                <div className="space-y-3">
+                  <div className="border-2 border-accent p-3 bg-accent/10">
+                    <div className="text-xs opacity-70 mb-1">Initial Ask (Pre-Seed)</div>
+                    <div className="font-bold text-accent text-2xl">₹40 Lakhs</div>
+                    <div className="text-xs opacity-70 mt-1">for 4% equity</div>
+                  </div>
+                  <div className="border-2 border-foreground p-3">
+                    <div className="text-xs opacity-70 mb-1">Pre-Money Valuation</div>
+                    <div className="font-bold text-lg">~₹10 Crore</div>
+                  </div>
+                </div>
+                <div className="pt-2 space-y-2 text-xs">
+                  <div className="flex items-start gap-2">
+                    <span className="text-accent">▸</span>
+                    <span>Infrastructure & prototyping</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-accent">▸</span>
+                    <span>R&D team expansion</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-accent">▸</span>
+                    <span>Pilot deployment setup</span>
+                  </div>
                 </div>
               </CardContent>
             </Card>
           </div>
+
+          <Card className="retro-box p-6">
+            <CardHeader>
+              <CardTitle className="text-xl uppercase text-center">Projected Growth</CardTitle>
+            </CardHeader>
+            <CardContent className="text-sm text-center space-y-4">
+              <p className="leading-relaxed">
+                Cumulative valuation potential (P/E 15-20x) by Year 3:
+              </p>
+              <div className="text-4xl font-bold text-gradient">₹500 - ₹15,000 Crore</div>
+              <Button className="retro-button bg-primary text-background font-bold uppercase text-xs px-8 py-4">
+                <Download className="w-4 h-4 mr-2" />
+                Download Investor Deck
+              </Button>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16 animate-fade-in">
-              <h2 className="text-4xl md:text-5xl font-display font-bold mb-4 text-gradient">
-                Get in Touch
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Let's discuss how OneBit AI can power your organization
-              </p>
-            </div>
+      <section id="contact" className="py-20 px-4 border-t-4 border-foreground bg-card">
+        <div className="container mx-auto max-w-4xl">
+          <h2 className="text-3xl md:text-5xl font-display text-center mb-12 pixel-text uppercase">
+            [ Get In Touch ]
+          </h2>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              <Card className="bg-card border-border">
-                <CardHeader>
-                  <CardTitle className="text-2xl font-display">Contact Information</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div>
-                    <p className="font-semibold text-lg mb-2">Anirudh Malik</p>
-                    <p className="text-sm text-muted-foreground">Founder, OneBit AI</p>
-                  </div>
-                  
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
-                      <Mail className="h-5 w-5" />
-                      <a href="mailto:anirudhforphysics@gmail.com">anirudhforphysics@gmail.com</a>
-                    </div>
-                    <div className="flex items-center gap-3 text-muted-foreground">
-                      <Globe className="h-5 w-5" />
-                      <span>New Delhi, India</span>
-                    </div>
-                  </div>
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <Card className="retro-box p-6">
+              <CardHeader>
+                <CardTitle className="text-lg uppercase">CEO & Founder</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2 text-sm">
+                <p className="font-bold text-primary">Anirudh Malik</p>
+                <p>📧 notanirudhmalik@gmail.com</p>
+                <p>📱 +91 9058176356</p>
+                <p>📍 New Delhi, India</p>
+              </CardContent>
+            </Card>
 
-                  <div className="border-t border-border pt-6">
-                    <p className="text-sm text-muted-foreground mb-4">Connect with us:</p>
-                    <div className="flex gap-4">
-                      <a href="#" className="p-3 bg-primary/10 hover:bg-primary/20 rounded-lg transition-colors">
-                        <Linkedin className="h-6 w-6 text-primary" />
-                      </a>
-                      <a href="#" className="p-3 bg-primary/10 hover:bg-primary/20 rounded-lg transition-colors">
-                        <Github className="h-6 w-6 text-primary" />
-                      </a>
-                      <a href="#" className="p-3 bg-primary/10 hover:bg-primary/20 rounded-lg transition-colors">
-                        <MessageSquare className="h-6 w-6 text-primary" />
-                      </a>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-card border-border">
-                <CardHeader>
-                  <CardTitle className="text-2xl font-display">Send a Message</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div>
-                      <Input
-                        placeholder="Your Name"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        required
-                        className="bg-background border-border"
-                      />
-                    </div>
-                    <div>
-                      <Input
-                        type="email"
-                        placeholder="Email Address"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        required
-                        className="bg-background border-border"
-                      />
-                    </div>
-                    <div>
-                      <Input
-                        placeholder="Organization"
-                        value={formData.organization}
-                        onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
-                        className="bg-background border-border"
-                      />
-                    </div>
-                    <div>
-                      <Textarea
-                        placeholder="Your Message"
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        required
-                        rows={5}
-                        className="bg-background border-border"
-                      />
-                    </div>
-                    <Button type="submit" className="w-full bg-primary hover:bg-primary/90" size="lg">
-                      Send Message
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </div>
+            <Card className="retro-box p-6">
+              <CardHeader>
+                <CardTitle className="text-lg uppercase">CTO & Co-Founder</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2 text-sm">
+                <p className="font-bold text-accent">Harsh Tyagi</p>
+                <p>📧 harshty261@gmail.com</p>
+                <p>📱 +91 70175 76212</p>
+                <p>📍 New Delhi, India</p>
+              </CardContent>
+            </Card>
           </div>
+
+          <Card className="retro-box p-6">
+            <CardHeader>
+              <CardTitle className="text-lg uppercase text-center">Send Us A Message</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-xs uppercase mb-2 block">Name</label>
+                    <Input 
+                      required 
+                      className="border-2 border-foreground focus:border-primary text-sm"
+                      placeholder="Your Name"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-xs uppercase mb-2 block">Email</label>
+                    <Input 
+                      type="email" 
+                      required 
+                      className="border-2 border-foreground focus:border-primary text-sm"
+                      placeholder="your@email.com"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="text-xs uppercase mb-2 block">Organization</label>
+                  <Input 
+                    className="border-2 border-foreground focus:border-primary text-sm"
+                    placeholder="Your Organization"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs uppercase mb-2 block">Message</label>
+                  <Textarea 
+                    required 
+                    rows={6}
+                    className="border-2 border-foreground focus:border-primary text-sm resize-none"
+                    placeholder="Tell us about your requirements..."
+                  />
+                </div>
+                <Button 
+                  type="submit"
+                  className="w-full retro-button bg-primary text-background font-bold uppercase text-sm py-6"
+                >
+                  Send Message ▶
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-border bg-card/30">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="text-center md:text-left">
-              <p className="text-2xl font-mono font-bold text-gradient mb-2">OneBit AI</p>
-              <p className="text-sm text-muted-foreground">
-                © 2025 OneBit AI. All rights reserved.
-              </p>
-            </div>
-            <div className="flex gap-6 text-sm text-muted-foreground">
-              <button onClick={() => scrollToSection("about")} className="hover:text-primary transition-colors">
-                About
+      <footer className="border-t-4 border-foreground bg-background py-8 px-4">
+        <div className="container mx-auto text-center space-y-4">
+          <div className="flex justify-center gap-6 text-xs">
+            {["About", "Products", "Tech", "Roadmap", "Investors", "Contact"].map((item) => (
+              <button
+                key={item}
+                onClick={() => scrollToSection(item.toLowerCase())}
+                className="hover:text-primary uppercase"
+              >
+                {item}
               </button>
-              <button onClick={() => scrollToSection("products")} className="hover:text-primary transition-colors">
-                Products
-              </button>
-              <button onClick={() => scrollToSection("investors")} className="hover:text-primary transition-colors">
-                Investors
-              </button>
-              <button onClick={() => scrollToSection("contact")} className="hover:text-primary transition-colors">
-                Contact
-              </button>
-            </div>
+            ))}
+          </div>
+          <div className="text-xs opacity-70">
+            © 2025 OneBit AI. All rights reserved. Made in India with ❤️
+          </div>
+          <div className="text-xs opacity-50">
+            Building India's Indigenous AI Infrastructure
           </div>
         </div>
       </footer>
+
+      <style>{`
+        .pixelated {
+          image-rendering: pixelated;
+          image-rendering: -moz-crisp-edges;
+          image-rendering: crisp-edges;
+        }
+      `}</style>
     </div>
   );
 };

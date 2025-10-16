@@ -49,9 +49,9 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Space Grotesk', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        sans: ['"Press Start 2P"', 'monospace'],
+        display: ['"VT323"', 'monospace'],
+        mono: ['"Courier New"', 'monospace'],
       },
       borderRadius: {
         lg: "var(--radius)",
