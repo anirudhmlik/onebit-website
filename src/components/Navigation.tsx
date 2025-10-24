@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Sun, Moon } from "lucide-react";
+import { HolographicLogo } from "@/components/HolographicLogo";
 import logoDark from "@/assets/onebit-logo.jpg";
 import logoLight from "@/assets/onebit-logo-light.jpg";
 
@@ -31,7 +32,7 @@ export const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="transition-transform duration-300 hover:scale-105">
-            <img src={isDark ? logoDark : logoLight} alt="OneBit AI" className="h-16 w-auto pixelated" />
+            <img src={isDark ? logoDark : logoLight} alt="OneBit AI" className="h-40 w-auto pixelated" />
           </Link>
           
           <div className="hidden md:flex items-center gap-2">
