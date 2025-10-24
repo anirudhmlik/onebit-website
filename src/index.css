@@ -65,6 +65,19 @@ All colors MUST be HSL.
     --background: 0 0% 0%;
     --foreground: 0 0% 100%;
   }
+
+  :root:not(.dark) {
+    --background: 0 0% 98%;
+    --foreground: 0 0% 5%;
+    --card: 0 0% 95%;
+    --card-foreground: 0 0% 5%;
+    --primary: 280 100% 40%;
+    --accent: 330 100% 45%;
+    --secondary: 180 80% 35%;
+    --border: 0 0% 20%;
+    --muted: 0 0% 85%;
+    --muted-foreground: 0 0% 30%;
+  }
 }
 
 @layer utilities {
