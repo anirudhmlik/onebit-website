@@ -1190,3 +1190,12 @@ All colors MUST be HSL.
     100% { transform: translate(-50%, -50%) translate(0, 0); }
   }
 }
+
+/* Product Card Hover Effects */
+.product-card-primary:hover {
+  background-color: rgba(147, 51, 234, 0.1) !important;
+}
+
+.product-card-accent:hover {
+  background-color: rgba(236, 72, 153, 0.1) !important;
+}

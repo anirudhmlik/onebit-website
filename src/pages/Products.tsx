@@ -36,7 +36,7 @@ const Products = () => {
       features: [
         "Vision AI capabilities",
         "Multi-user support",
-        "Satellite/surveillance analysis",
+        "Surveillance analysis",
         "Up to 60fps generation",
         "On-premise team server"
       ]
@@ -60,8 +60,10 @@ const Products = () => {
             {products.map((p, i) => (
               <Card 
                 key={i} 
-                className={`retro-box p-6 hover:translate-y-[-4px] transition-all duration-300 bg-card/80 backdrop-blur-sm ${
-                  p.accent ? 'border-accent hover:shadow-[8px_8px_0_hsl(var(--accent))]' : 'hover:shadow-retro'
+                className={`retro-box p-6 hover:translate-y-[-4px] transition-all duration-300 bg-card/80 backdrop-blur-sm group ${
+                  p.accent 
+                    ? 'border-accent hover:shadow-[8px_8px_0_hsl(var(--accent))] product-card-accent' 
+                    : 'hover:shadow-retro product-card-primary'
                 }`}
                 style={{ animationDelay: `${i * 100}ms` }}
               >
