@@ -8,55 +8,55 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Retro 8-bit Theme Colors */
-    --background: 0 0% 0%; /* Pure black like old CRT screens */
-    --foreground: 0 0% 100%; /* Pure white pixels */
+    /* Retro 8-bit Theme Colors - Matching logo purple tones */
+    --background: 0 0% 8%; /* Deep dark background */
+    --foreground: 0 0% 98%; /* Crisp white pixels */
     
-    --card: 0 0% 5%;
-    --card-foreground: 0 0% 100%;
+    --card: 260 20% 12%;
+    --card-foreground: 0 0% 98%;
     
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 260 20% 15%;
+    --popover-foreground: 0 0% 98%;
     
-    --primary: 280 100% 70%; /* Retro purple/magenta */
+    --primary: 265 75% 65%; /* Logo-matched purple */
     --primary-foreground: 0 0% 100%;
     
-    --secondary: 180 100% 50%; /* Cyan like old terminals */
+    --secondary: 180 85% 55%; /* Bright cyan */
     --secondary-foreground: 0 0% 0%;
     
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 70%;
+    --muted: 260 15% 20%;
+    --muted-foreground: 0 0% 65%;
     
-    --accent: 330 100% 60%; /* Hot pink accent */
+    --accent: 310 80% 60%; /* Hot pink accent */
     --accent-foreground: 0 0% 100%;
     
-    --destructive: 0 100% 50%;
+    --destructive: 0 85% 60%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 280 100% 70%;
+    --border: 265 50% 45%;
+    --input: 260 20% 18%;
+    --ring: 265 75% 65%;
     
     --radius: 0rem; /* Sharp corners for pixel aesthetic */
     
     /* Retro Gradients */
-    --gradient-retro: linear-gradient(135deg, hsl(280 100% 70%), hsl(330 100% 60%));
-    --gradient-cyber: linear-gradient(180deg, hsl(180 100% 50%), hsl(280 100% 70%));
-    --gradient-arcade: linear-gradient(90deg, hsl(330 100% 60%), hsl(60 100% 50%), hsl(180 100% 50%));
+    --gradient-retro: linear-gradient(135deg, hsl(265 75% 65%), hsl(310 80% 60%));
+    --gradient-cyber: linear-gradient(180deg, hsl(180 85% 55%), hsl(265 75% 65%));
+    --gradient-arcade: linear-gradient(90deg, hsl(310 80% 60%), hsl(60 100% 50%), hsl(180 85% 55%));
     
     /* Retro Shadows - Chunky pixel-style */
-    --shadow-pixel: 4px 4px 0 hsl(280 100% 70%);
-    --shadow-retro: 8px 8px 0 hsl(330 100% 60%);
-    --shadow-cyber: 0 0 20px hsl(180 100% 50% / 0.5);
+    --shadow-pixel: 4px 4px 0 hsl(265 75% 65%);
+    --shadow-retro: 8px 8px 0 hsl(310 80% 60%);
+    --shadow-cyber: 0 0 20px hsl(180 85% 55% / 0.5);
     
-    /* Transitions */
-    --transition-retro: all 0.1s steps(3);
-    --transition-smooth: all 0.2s ease;
+    /* Transitions - Smooth for better UX */
+    --transition-retro: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     
     /* Chart colors */
-    --chart-1: 280 100% 70%;
-    --chart-2: 180 100% 50%;
-    --chart-3: 330 100% 60%;
+    --chart-1: 265 75% 65%;
+    --chart-2: 180 85% 55%;
+    --chart-3: 310 80% 60%;
     --chart-4: 60 100% 50%;
     --chart-5: 120 100% 40%;
   }
@@ -67,16 +67,17 @@ All colors MUST be HSL.
   }
 
   :root:not(.dark) {
-    --background: 0 0% 98%;
-    --foreground: 0 0% 5%;
-    --card: 0 0% 95%;
-    --card-foreground: 0 0% 5%;
-    --primary: 280 100% 40%;
-    --accent: 330 100% 45%;
-    --secondary: 180 80% 35%;
-    --border: 0 0% 20%;
-    --muted: 0 0% 85%;
-    --muted-foreground: 0 0% 30%;
+    --background: 265 30% 95%;
+    --foreground: 260 40% 15%;
+    --card: 265 25% 92%;
+    --card-foreground: 260 40% 15%;
+    --primary: 265 75% 45%;
+    --accent: 310 70% 50%;
+    --secondary: 180 70% 40%;
+    --border: 265 50% 60%;
+    --input: 265 25% 90%;
+    --muted: 265 20% 85%;
+    --muted-foreground: 260 25% 35%;
   }
 }
 
@@ -105,12 +106,18 @@ All colors MUST be HSL.
   .retro-button {
     border: 3px solid hsl(var(--foreground));
     box-shadow: 4px 4px 0 hsl(var(--primary));
-    transition: var(--transition-retro);
+    transition: var(--transition-smooth);
   }
 
   .retro-button:hover {
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0 hsl(var(--primary));
+  }
+
+  .pixelated {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
   }
 
   @keyframes blink {
