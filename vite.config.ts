@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? '/onebit-pocket-ai/' : '/',
+  base: process.env.VITE_BASE_PATH || (mode === 'production' ? '/onebit-pocket-ai/' : '/'),
   server: {
     host: "::",
     port: 8080,
