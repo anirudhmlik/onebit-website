@@ -27,7 +27,7 @@ const Contact = () => {
     });
 
     // Send notification email to founder
-    const mailtoLink = `mailto:notanirudhmalik@gmail.com?subject=New Contact from ${formData.name}&body=Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0AOrganization: ${formData.organization}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
+    const mailtoLink = `mailto:ceo@onebit-ai.in?subject=New Contact from ${formData.name}&body=Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0AOrganization: ${formData.organization}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
     window.location.href = mailtoLink;
 
     // Reset form
@@ -119,11 +119,11 @@ const Contact = () => {
                   
                   <div className="space-y-3">
                     <a
-                      href="mailto:notanirudhmalik@gmail.com"
+                      href="mailto:ceo@onebit-ai.in"
                       className="flex items-center gap-3 text-sm hover:text-primary transition-all duration-300 hover:translate-x-1"
                     >
                       <Mail size={20} className="text-primary" />
-                      notanirudhmalik@gmail.com
+                      ceo@onebit-ai.in
                     </a>
                     <a
                       href="tel:+919058176356"

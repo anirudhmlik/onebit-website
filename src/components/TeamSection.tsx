@@ -14,7 +14,7 @@ const teamMembers = [
       linkedin: "https://linkedin.com/in/anirudhmalik",
       twitter: "https://twitter.com/anirudhmalik",
       github: "https://github.com/anirudhmalik",
-      email: "anirudh@onebit.ai"
+      email: "ceo@onebit-ai.in"
     },
     skills: ["AI Research", "Edge Computing", "Leadership", "Strategy"]
   },
