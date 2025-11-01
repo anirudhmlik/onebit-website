@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Linkedin } from "lucide-react";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -126,29 +126,15 @@ const Contact = () => {
                       ceo@onebit-ai.in
                     </a>
                     <a
-                      href="tel:+919058176356"
+                      href="https://www.linkedin.com/in/whoisaphysicist/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center gap-3 text-sm hover:text-primary transition-all duration-300 hover:translate-x-1"
                     >
-                      <Phone size={20} className="text-primary" />
-                      +91 9058176356
+                      <Linkedin size={20} className="text-primary" />
+                      LinkedIn Profile
                     </a>
-                    <div className="flex items-center gap-3 text-sm">
-                      <MapPin size={20} className="text-primary" />
-                      New Delhi, India
-                    </div>
                   </div>
-                </CardContent>
-              </Card>
-
-              <Card className="retro-box p-8 bg-accent/10 backdrop-blur-sm border-accent">
-                <CardHeader>
-                  <CardTitle className="text-xl font-display uppercase">Response Time</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm">
-                    We typically respond within 24-48 hours. For urgent inquiries, 
-                    please call directly or mention "URGENT" in your message subject.
-                  </p>
                 </CardContent>
               </Card>
             </div>

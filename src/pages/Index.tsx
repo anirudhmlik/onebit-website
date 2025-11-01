@@ -112,11 +112,6 @@ const Index = () => {
             We're an early-stage startup looking for partners, investors, and innovators
             who share our vision of AI independence.
           </p>
-          <Link to="/contact">
-            <Button size="lg" className="retro-button bg-accent text-background font-bold uppercase text-lg px-8 py-4">
-              Let's Connect
-            </Button>
-          </Link>
         </div>
       </section>
 

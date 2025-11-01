@@ -8,7 +8,7 @@ import logoLight from "@/assets/onebit-logo-light.jpg";
 
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
