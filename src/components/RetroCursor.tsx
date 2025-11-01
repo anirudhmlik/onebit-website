@@ -9,6 +9,7 @@ export const RetroCursor = () => {
   const [isMobile, setIsMobile] = useState(false);
   const trailRefs = useRef<HTMLDivElement[]>([]);
   const animationFrameRef = useRef<number>();
+  const lastClickTimeRef = useRef<number>(0);
 
   useEffect(() => {
     // Check if device is mobile/touch
@@ -47,12 +48,14 @@ export const RetroCursor = () => {
       
       // Create trail effect - reduced frequency
       if (Math.random() < 0.02) {
-        createTrail(e.clientX, e.clientY);
+        const wasJustClicked = Date.now() - lastClickTimeRef.current < 300; // Within 300ms of click
+        createTrail(e.clientX, e.clientY, wasJustClicked);
       }
     };
 
     const handleMouseDown = () => {
       setIsClicking(true);
+      lastClickTimeRef.current = Date.now();
     };
 
     const handleMouseUp = () => {
@@ -113,9 +116,9 @@ export const RetroCursor = () => {
     };
   }, [isMobile]);
 
-  const createTrail = (x: number, y: number) => {
+  const createTrail = (x: number, y: number, isClicking = false) => {
     const trail = document.createElement('div');
-    trail.className = 'cursor-trail';
+    trail.className = isClicking ? 'cursor-trail cursor-trail-rotate' : 'cursor-trail';
     trail.style.left = `${x}px`;
     trail.style.top = `${y}px`;
     document.body.appendChild(trail);

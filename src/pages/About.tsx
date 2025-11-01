@@ -1,6 +1,6 @@
 import { RetroBackground } from "@/components/RetroBackground";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Target, Lightbulb, Rocket } from "lucide-react";
+import { Target, Lightbulb, Rocket, AlertTriangle, Shield, Zap } from "lucide-react";
 
 const About = () => {
   return (
@@ -21,12 +21,13 @@ const About = () => {
               </CardHeader>
               <CardContent className="text-base space-y-4">
                 <p>
-                  OneBit AI is pioneering indigenous artificial intelligence systems in India. We're building 
-                  ultra-efficient, low-bit AI models and hardware that operate completely offline.
+                  <strong>OneBit AI</strong> (Delhi NCR | Established 2025) is an indigenous artificial intelligence 
+                  company pioneering ultra-efficient low-bit and edge-based AI systems in India.
                 </p>
                 <p>
-                  Our mission is to democratize AI access while ensuring data sovereignty, privacy, and 
-                  national security through locally manufactured, self-contained AI devices.
+                  OneBit AI aims to establish India as a leader in sovereign, sustainable, and hardware-efficient 
+                  AI ecosystems—empowering enterprises, defence sectors, and research institutions with secure, 
+                  low-cost intelligence solutions.
                 </p>
               </CardContent>
             </Card>
@@ -52,32 +53,74 @@ const About = () => {
             <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm">
               <CardHeader>
                 <Rocket className="w-12 h-12 mb-4 text-secondary" strokeWidth={3} />
-                <CardTitle className="text-2xl font-display uppercase">Early Stage Startup</CardTitle>
+                <CardTitle className="text-2xl font-display uppercase">Our AIM</CardTitle>
               </CardHeader>
               <CardContent className="text-base space-y-4">
                 <p>
-                  We're at an exciting phase of growth, moving from prototype development to pilot 
-                  deployments with government and defense institutions.
+                  OneBit aims to develop the tech of the future right here in India and organically.
                 </p>
                 <p>
-                  As an early-stage startup, we're looking for strategic partners, investors, and 
-                  collaborators who share our vision of making India an AI superpower through indigenous 
-                  innovation.
+                  We aim to develop the lowest bit quantised LLM models that can run on the most efficient 
+                  hardware while lowering energy consumption by 90% today.
+                </p>
+                <p>
+                  Our goal for the next 6 months to 1 year is to provide a secure AI toolbox to our Government 
+                  and on the side develop India's own Cloud-based GPT for consumers across India.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm border-primary">
+            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm border-destructive/50">
               <CardHeader>
-                <CardTitle className="text-2xl font-display uppercase">Founder</CardTitle>
+                <AlertTriangle className="w-12 h-12 mb-4 text-destructive" strokeWidth={3} />
+                <CardTitle className="text-2xl font-display uppercase">The Challenge</CardTitle>
               </CardHeader>
-              <CardContent className="text-base">
-                <p className="text-xl font-bold mb-2">Anirudh Malik</p>
-                <p className="text-sm text-primary uppercase font-display">Founder & CEO</p>
-                <p className="mt-4 text-muted-foreground">
-                  Leading OneBit AI's mission to establish India as a pioneer in offline, sovereign 
-                  artificial intelligence systems.
+              <CardContent className="text-base space-y-4">
+                <p>
+                  Increasing reliance on foreign AI tools creates data-security vulnerabilities for critical 
+                  government and defence projects.
                 </p>
+                <p>
+                  Many AI systems require cloud connectivity, exposing sensitive data to potential leaks or breaches.
+                </p>
+                <p>
+                  There is a growing need within MoD, DRDO and allied institutions for offline, secure, and 
+                  India-made AI that can operate in isolated networks.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm border-secondary">
+              <CardHeader>
+                <Shield className="w-12 h-12 mb-4 text-secondary" strokeWidth={3} />
+                <CardTitle className="text-2xl font-display uppercase">Advantages for DRDO and MoD</CardTitle>
+              </CardHeader>
+              <CardContent className="text-base space-y-4">
+                <ul className="space-y-2 list-disc list-inside">
+                  <li>Enables secure AI research, simulation, and analytics in classified environments</li>
+                  <li>Reduces foreign technology dependence, supporting Atmanirbhar Bharat</li>
+                  <li>Rapid on-site AI inference suitable for defence R&D and tactical applications</li>
+                  <li>Minimises cyber-attack surface by removing third-party cloud access</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm border-accent">
+              <CardHeader>
+                <Zap className="w-12 h-12 mb-4 text-accent" strokeWidth={3} />
+                <CardTitle className="text-2xl font-display uppercase">Potential Use Cases</CardTitle>
+              </CardHeader>
+              <CardContent className="text-base space-y-4">
+                <ul className="space-y-2 list-disc list-inside">
+                  <li>Secure Data Intelligence for Strategic Defence Applications</li>
+                  <li>On-Premise AI Model Development and Training within DRDO Facilities</li>
+                  <li>AI-Enhanced Testing, Simulation, and Forecasting Tools</li>
+                  <li>Collaboration across secure networks (OneBit MAX) for fleet-wide inference & real-time maritime analytics</li>
+                  <li>Search & Rescue (mountains/forests): detect missing hikers using thermal + visual cues</li>
+                  <li>Automated alerts to command centres with GPS coordinates and time-stamped data</li>
+                  <li>Offline text/image/code generation for mission planning in remote regions (no cloud)</li>
+                  <li>On-board, offline inference of people/vehicle detection, reducing bandwidth to ground station</li>
+                </ul>
               </CardContent>
             </Card>
           </div>

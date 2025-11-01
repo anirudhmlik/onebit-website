@@ -41,7 +41,7 @@ const Index = () => {
             </h1>
           </GlitchEffect>
           <p className="text-xl md:text-2xl lg:text-3xl max-w-4xl mx-auto font-display">
-            Indigenous AI devices for data sovereignty and national security
+            Empowering enterprises, defence sectors, and research institutions with secure, low-cost intelligence solutions
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <Link to="/products">
@@ -72,14 +72,14 @@ const Index = () => {
             ].map((item, i) => (
                 <div 
                   key={i} 
-                  className={`retro-box p-6 hover:translate-y-[-4px] transition-all duration-300 hover:shadow-retro bg-card ${
+                  className={`retro-box p-6 group transition-all duration-300 bg-card hover:scale-105 hover:shadow-[0_8px_16px_rgba(0,0,0,0.2)] hover:bg-card/90 ${
                     i === 0 ? 'card-3d-tilt' : i === 1 ? 'card-3d-float' : 'card-3d-flip'
                   } ${
                     isFeaturesVisible ? `animate-scale-in` : 'opacity-0 scale-90'
                   }`}
                   style={{ animationDelay: `${i * 200}ms` }}
                 >
-                <item.icon className="w-12 h-12 mb-4 text-primary animate-float-3d" strokeWidth={3} />
+                <item.icon className="w-12 h-12 mb-4 text-primary group-hover:text-accent group-hover:scale-125 transition-all duration-300" strokeWidth={2.5} />
                 <h3 className="text-xl font-display uppercase mb-2">{item.title}</h3>
                 <p className="text-sm text-muted-foreground">{item.desc}</p>
               </div>

@@ -4,12 +4,12 @@
   "description": "Indigenous AI devices for data sovereignty and national security",
   "icons": [
     {
-      "src": "/onebit-logo.jpg",
+      "src": "/onebit-logo-with-background.jpg",
       "sizes": "192x192",
       "type": "image/jpeg"
     },
     {
-      "src": "/onebit-logo.jpg",
+      "src": "/onebit-logo-with-background.jpg",
       "sizes": "512x512",
       "type": "image/jpeg"
     }

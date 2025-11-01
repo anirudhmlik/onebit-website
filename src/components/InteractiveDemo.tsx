@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Play, Pause, RotateCcw, Zap, Cpu, Shield, Clock } from "lucide-react";
@@ -39,7 +38,6 @@ export const InteractiveDemo = () => {
   const [isRunning, setIsRunning] = useState(false);
   const [currentDemo, setCurrentDemo] = useState(0);
   const [results, setResults] = useState<DemoResult[]>([]);
-  const [customPrompt, setCustomPrompt] = useState("");
   const [progress, setProgress] = useState(0);
   
   const [demoRef, isDemoVisible, getDemoAnimation] = useScrollAnimation({ 
@@ -113,15 +111,6 @@ export const InteractiveDemo = () => {
     await simulateAIProcessing(demo.prompt, demo.type, demo.expectedTime);
     setIsRunning(false);
     setCurrentDemo((prev) => (prev + 1) % demoPrompts.length);
-  };
-
-  const handleCustomPrompt = async () => {
-    if (!customPrompt.trim() || isRunning) return;
-    
-    setIsRunning(true);
-    await simulateAIProcessing(customPrompt, 'text', 1500);
-    setIsRunning(false);
-    setCustomPrompt("");
   };
 
   const resetDemo = () => {
@@ -208,27 +197,6 @@ export const InteractiveDemo = () => {
               >
                 <RotateCcw className="w-4 h-4" />
               </Button>
-            </div>
-
-            {/* Custom Prompt */}
-            <div className="space-y-3">
-              <h3 className="text-lg font-display uppercase text-accent">Custom Prompt</h3>
-              <div className="flex gap-2">
-                <Input
-                  value={customPrompt}
-                  onChange={(e) => setCustomPrompt(e.target.value)}
-                  placeholder="Enter your prompt..."
-                  className="retro-input flex-1"
-                  disabled={isRunning}
-                />
-                <Button
-                  onClick={handleCustomPrompt}
-                  disabled={!customPrompt.trim() || isRunning}
-                  className="retro-button bg-accent text-background"
-                >
-                  <Zap className="w-4 h-4" />
-                </Button>
-              </div>
             </div>
           </CardContent>
         </Card>

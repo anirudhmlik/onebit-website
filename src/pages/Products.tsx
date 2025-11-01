@@ -7,39 +7,41 @@ const Products = () => {
     {
       name: "AIR",
       icon: Cpu,
-      desc: "USB plug & play AI",
+      desc: "100% Offline • 100% Secure • OS Independent",
       features: [
-        "Document/PDF summarization",
-        "Multilingual support",
-        "Text & code generation",
-        "Runs on your machine",
-        "Complete offline operation"
-      ]
+        "Power of all models in one device",
+        "Coding, text/PDF summarization",
+        "OCR and voice-to-text capabilities",
+        "Complete offline operation",
+        "Runs on any operating system"
+      ],
+      colorScheme: "secondary"
     },
     {
       name: "PRO",
       icon: Zap,
-      desc: "PCB with integrated compute",
+      desc: "Fine-tuned model for specific tasks",
       features: [
-        "10× faster inference",
-        "Independent processing",
-        "Rugged & portable",
-        "Secure & private",
-        "Plug-and-play setup"
+        "Custom AI models tailored to your needs",
+        "Optimized for specific use cases",
+        "Enhanced performance for targeted tasks",
+        "Secure and private inference",
+        "Enterprise-ready deployment"
       ],
-      accent: true
+      colorScheme: "accent"
     },
     {
       name: "MAX",
       icon: Shield,
-      desc: "LAN server hub",
+      desc: "Collaborative fleet-wide inference",
       features: [
-        "Vision AI capabilities",
-        "Multi-user support",
-        "Surveillance analysis",
-        "Up to 60fps generation",
-        "On-premise team server"
-      ]
+        "Multi-device collaboration across secure networks",
+        "Real-time maritime analytics",
+        "Fleet-wide AI inference capabilities",
+        "On-premise team server",
+        "Advanced vision AI for defense applications"
+      ],
+      colorScheme: "max"
     }
   ];
 
@@ -53,42 +55,64 @@ const Products = () => {
             [ Products ]
           </h1>
           <p className="text-center text-lg font-display mb-12 max-w-3xl mx-auto">
-            Three models designed for different scales — from individual developers to enterprise deployments
+            Three models designed for different scales — empowering enterprises, defence sectors, and research institutions with secure, low-cost intelligence solutions
           </p>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {products.map((p, i) => (
-              <Card 
-                key={i} 
-                className={`retro-box p-6 hover:translate-y-[-4px] transition-all duration-300 bg-card/80 backdrop-blur-sm group ${
-                  p.accent 
-                    ? 'border-accent hover:shadow-[8px_8px_0_hsl(var(--accent))] product-card-accent' 
-                    : 'hover:shadow-retro product-card-primary'
-                }`}
-                style={{ animationDelay: `${i * 100}ms` }}
-              >
-                <CardHeader>
-                  <p.icon 
-                    className={`w-16 h-16 mb-4 ${p.accent ? 'text-accent' : 'text-primary'}`} 
-                    strokeWidth={3} 
-                  />
-                  <CardTitle className="text-3xl font-display uppercase">
-                    OneBit {p.name}
-                  </CardTitle>
-                  <CardDescription className="text-sm font-display">{p.desc}</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <ul className="text-sm space-y-2">
-                    {p.features.map((f, j) => (
-                      <li key={j} className="flex items-start gap-2">
-                        <span className={p.accent ? 'text-accent' : 'text-primary'}>▸</span>
-                        <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
+            {products.map((p, i) => {
+              const colorClass = p.colorScheme === 'accent' 
+                ? 'border-accent hover:shadow-[8px_8px_0_hsl(var(--accent))] hover:bg-accent/20' 
+                : p.colorScheme === 'secondary'
+                ? 'border-secondary hover:shadow-[8px_8px_0_hsl(var(--secondary))] hover:bg-secondary/20'
+                : p.colorScheme === 'max'
+                ? 'border-[hsl(var(--primary))] hover:shadow-[8px_8px_0_hsl(var(--primary))] hover:bg-primary/20'
+                : 'border-primary hover:shadow-retro';
+              
+              const iconColor = p.colorScheme === 'accent' 
+                ? 'text-accent' 
+                : p.colorScheme === 'secondary'
+                ? 'text-secondary'
+                : p.colorScheme === 'max'
+                ? 'text-[hsl(var(--primary))]'
+                : 'text-primary';
+              
+              const bulletColor = p.colorScheme === 'accent'
+                ? 'text-accent'
+                : p.colorScheme === 'secondary'
+                ? 'text-secondary'
+                : p.colorScheme === 'max'
+                ? 'text-[hsl(var(--secondary))]'
+                : 'text-primary';
+
+              return (
+                <Card 
+                  key={i} 
+                  className={`retro-box p-6 hover:translate-y-[-4px] transition-all duration-300 bg-card/80 backdrop-blur-sm group ${colorClass}`}
+                  style={{ animationDelay: `${i * 100}ms` }}
+                >
+                  <CardHeader>
+                    <p.icon 
+                      className={`w-16 h-16 mb-4 ${iconColor}`} 
+                      strokeWidth={3} 
+                    />
+                    <CardTitle className="text-3xl font-display uppercase">
+                      OneBit {p.name}
+                    </CardTitle>
+                    <CardDescription className="text-sm font-display">{p.desc}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <ul className="text-sm space-y-2">
+                      {p.features.map((f, j) => (
+                        <li key={j} className="flex items-start gap-2">
+                          <span className={bulletColor}>▸</span>
+                          <span>{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
 
           <div className="mt-16 max-w-4xl mx-auto">
