@@ -41,7 +41,7 @@ const Contact = () => {
                     className="flex items-center gap-3 text-sm hover:text-primary transition-all duration-300 hover:translate-x-1"
                   >
                     <Phone size={20} className="text-primary" />
-                    +91 9058176356
+                    
                   </a>
                   <a
                     href="https://www.linkedin.com/in/whoisaphysicist/"
