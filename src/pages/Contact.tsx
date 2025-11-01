@@ -17,15 +17,14 @@ const Contact = () => {
             Ready to explore offline AI? Let's connect.
           </p>
 
-          <div className="flex justify-center">
-            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm border-primary max-w-md w-full">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm border-primary">
               <CardHeader>
-                <CardTitle className="text-2xl font-display uppercase">Founder</CardTitle>
+                <CardTitle className="text-2xl font-display uppercase">Founder & CEO</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div>
                   <p className="text-2xl font-bold mb-1">Anirudh Malik</p>
-                  <p className="text-sm text-primary uppercase font-display">Founder & CEO</p>
                 </div>
                 
                 <div className="space-y-3">
@@ -50,6 +49,36 @@ const Contact = () => {
                     className="flex items-center gap-3 text-sm hover:text-primary transition-all duration-300 hover:translate-x-1"
                   >
                     <Linkedin size={20} className="text-primary" />
+                    LinkedIn Profile
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm border-secondary">
+              <CardHeader>
+                <CardTitle className="text-2xl font-display uppercase">Co-founder & CTO</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div>
+                  <p className="text-2xl font-bold mb-1">Harsh Tyagi</p>
+                </div>
+                
+                <div className="space-y-3">
+                  <a
+                    href="tel:+917017576212"
+                    className="flex items-center gap-3 text-sm hover:text-secondary transition-all duration-300 hover:translate-x-1"
+                  >
+                    <Phone size={20} className="text-secondary" />
+                    +91 7017576212
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/harsht261/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-sm hover:text-secondary transition-all duration-300 hover:translate-x-1"
+                  >
+                    <Linkedin size={20} className="text-secondary" />
                     LinkedIn Profile
                   </a>
                 </div>
