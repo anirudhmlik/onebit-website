@@ -24,6 +24,7 @@ export const Navigation = () => {
     { path: "/about", label: "about" },
     { path: "/products", label: "products" },
     { path: "/partners", label: "partners" },
+    { path: "/team", label: "team" },
     { path: "/contact", label: "contact" }
   ];
 

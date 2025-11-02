@@ -66,6 +66,13 @@ const Contact = () => {
                 
                 <div className="space-y-3">
                   <a
+                    href="mailto:harshty261@gmail.com"
+                    className="flex items-center gap-3 text-sm hover:text-secondary transition-all duration-300 hover:translate-x-1"
+                  >
+                    <Mail size={20} className="text-secondary" />
+                    harshty261@gmail.com
+                  </a>
+                  <a
                     href="tel:+917017576212"
                     className="flex items-center gap-3 text-sm hover:text-secondary transition-all duration-300 hover:translate-x-1"
                   >
