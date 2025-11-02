@@ -9,32 +9,38 @@ const Partners = () => {
     {
       icon: Shield,
       title: "Defence & Government",
-      desc: "Secure, offline AI for national security operations, strategic command centres, and classified environments where data sovereignty is critical."
+      desc: "Secure, offline AI for national security operations, strategic command centres, and classified environments where data sovereignty is critical.",
+      hoverBg: "hover:bg-primary/20"
     },
     {
       icon: Building2,
       title: "Public Sector Banks",
-      desc: "Privacy-first AI solutions for financial analysis, customer service, and fraud detection without exposing sensitive data to cloud services."
+      desc: "Privacy-first AI solutions for financial analysis, customer service, and fraud detection without exposing sensitive data to cloud services.",
+      hoverBg: "hover:bg-accent/20"
     },
     {
       icon: Hospital,
       title: "Healthcare Institutions",
-      desc: "Medical document processing, diagnostic assistance, and patient data analysis with complete privacy and HIPAA compliance."
+      desc: "Medical document processing, diagnostic assistance, and patient data analysis with complete privacy and HIPAA compliance.",
+      hoverBg: "hover:bg-secondary/20"
     },
     {
       icon: GraduationCap,
       title: "Educational Institutions",
-      desc: "AI-powered learning tools, research assistance, and administrative automation for schools, colleges, and universities."
+      desc: "AI-powered learning tools, research assistance, and administrative automation for schools, colleges, and universities.",
+      hoverBg: "hover:bg-primary/20"
     },
     {
       icon: Briefcase,
       title: "Enterprises & Corporates",
-      desc: "Offline AI for internal operations, document intelligence, code generation, and workflow automation without cloud dependency."
+      desc: "Offline AI for internal operations, document intelligence, code generation, and workflow automation without cloud dependency.",
+      hoverBg: "hover:bg-accent/20"
     },
     {
       icon: Globe,
       title: "Export Markets",
-      desc: "Strategic partnerships with friendly nations seeking sovereign AI capabilities and technology independence."
+      desc: "Strategic partnerships with friendly nations seeking sovereign AI capabilities and technology independence.",
+      hoverBg: "hover:bg-secondary/20"
     }
   ];
 
@@ -55,7 +61,7 @@ const Partners = () => {
             {sectors.map((sector, i) => (
               <Card 
                 key={i} 
-                className="retro-box p-6 hover:translate-y-[-4px] transition-all duration-300 bg-card/80 backdrop-blur-sm hover:shadow-retro"
+                className={`retro-box p-6 hover:translate-y-[-4px] transition-all duration-300 bg-card/80 backdrop-blur-sm hover:shadow-retro ${sector.hoverBg}`}
                 style={{ animationDelay: `${i * 100}ms` }}
               >
                 <CardHeader>
@@ -69,13 +75,13 @@ const Partners = () => {
             ))}
           </div>
 
-          <Card className="retro-box p-8 bg-accent/10 backdrop-blur-sm border-accent">
+          <Card className="retro-box p-4 md:p-8 bg-accent/10 backdrop-blur-sm border-accent hover:bg-accent/20 transition-all duration-300 w-full">
             <CardHeader>
-              <CardTitle className="text-3xl font-display uppercase text-center mb-4">
+              <CardTitle className="text-2xl md:text-3xl font-display uppercase text-center mb-4">
                 Partnership Opportunities
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6 text-base">
+            <CardContent className="space-y-6 text-sm md:text-base">
               <div>
                 <h3 className="text-xl font-display uppercase text-accent mb-2">Strategic Partners</h3>
                 <p>
@@ -100,9 +106,9 @@ const Partners = () => {
                 </p>
               </div>
 
-              <div className="text-center pt-6">
-                <Link to="/contact">
-                  <Button size="lg" className="retro-button bg-accent text-background font-bold uppercase">
+              <div className="text-center pt-6 px-2">
+                <Link to="/contact" className="inline-block w-full sm:w-auto">
+                  <Button size="lg" className="retro-button bg-accent text-background font-bold uppercase w-full sm:w-auto">
                     Let's Partner Up
                   </Button>
                 </Link>

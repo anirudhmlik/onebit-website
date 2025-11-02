@@ -18,7 +18,7 @@ const Contact = () => {
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm border-primary">
+            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm border-primary hover:bg-primary/20 transition-all duration-300">
               <CardHeader>
                 <CardTitle className="text-2xl font-display uppercase">Founder & CEO</CardTitle>
               </CardHeader>
@@ -55,7 +55,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm border-secondary">
+            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm border-secondary hover:bg-secondary/20 transition-all duration-300">
               <CardHeader>
                 <CardTitle className="text-2xl font-display uppercase">Co-founder & CTO</CardTitle>
               </CardHeader>

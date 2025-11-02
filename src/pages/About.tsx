@@ -14,7 +14,7 @@ const About = () => {
           </h1>
 
           <div className="space-y-12 animate-fade-in">
-            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm">
+            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm hover:bg-primary/20 transition-all duration-300">
               <CardHeader>
                 <Target className="w-12 h-12 mb-4 text-primary" strokeWidth={3} />
                 <CardTitle className="text-2xl font-display uppercase">Our Mission</CardTitle>
@@ -32,7 +32,7 @@ const About = () => {
               </CardContent>
             </Card>
 
-            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm">
+            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm hover:bg-accent/20 transition-all duration-300">
               <CardHeader>
                 <Lightbulb className="w-12 h-12 mb-4 text-accent" strokeWidth={3} />
                 <CardTitle className="text-2xl font-display uppercase">Our Vision</CardTitle>
@@ -50,7 +50,7 @@ const About = () => {
               </CardContent>
             </Card>
 
-            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm">
+            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm hover:bg-secondary/20 transition-all duration-300">
               <CardHeader>
                 <Rocket className="w-12 h-12 mb-4 text-secondary" strokeWidth={3} />
                 <CardTitle className="text-2xl font-display uppercase">Our AIM</CardTitle>
@@ -70,7 +70,7 @@ const About = () => {
               </CardContent>
             </Card>
 
-            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm border-destructive/50">
+            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm border-destructive/50 hover:bg-destructive/20 transition-all duration-300">
               <CardHeader>
                 <AlertTriangle className="w-12 h-12 mb-4 text-destructive" strokeWidth={3} />
                 <CardTitle className="text-2xl font-display uppercase">The Challenge</CardTitle>
@@ -90,7 +90,7 @@ const About = () => {
               </CardContent>
             </Card>
 
-            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm border-secondary">
+            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm border-secondary hover:bg-secondary/20 transition-all duration-300">
               <CardHeader>
                 <Shield className="w-12 h-12 mb-4 text-secondary" strokeWidth={3} />
                 <CardTitle className="text-2xl font-display uppercase">Advantages for DRDO and MoD</CardTitle>
@@ -105,7 +105,7 @@ const About = () => {
               </CardContent>
             </Card>
 
-            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm border-accent">
+            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm border-accent hover:bg-accent/20 transition-all duration-300">
               <CardHeader>
                 <Zap className="w-12 h-12 mb-4 text-accent" strokeWidth={3} />
                 <CardTitle className="text-2xl font-display uppercase">Potential Use Cases</CardTitle>
