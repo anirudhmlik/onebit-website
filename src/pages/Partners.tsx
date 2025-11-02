@@ -106,9 +106,9 @@ const Partners = () => {
                 </p>
               </div>
 
-              <div className="text-center pt-6 px-2">
-                <Link to="/contact" className="inline-block w-full sm:w-auto">
-                  <Button size="lg" className="retro-button bg-accent text-background font-bold uppercase w-full sm:w-auto text-xs sm:text-base px-2 sm:px-8 py-2 sm:py-4 break-words">
+              <div className="text-center pt-6 px-1 sm:px-2">
+                <Link to="/contact" className="inline-block w-full sm:w-auto max-w-full">
+                  <Button className="retro-button bg-accent text-background font-bold uppercase w-full sm:w-auto text-[9px] sm:text-base px-1.5 sm:px-8 py-2 sm:py-6 leading-tight sm:size-lg max-w-full box-border">
                     Let's Partner Up
                   </Button>
                 </Link>
