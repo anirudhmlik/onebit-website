@@ -127,12 +127,12 @@ export const InteractiveDemo = () => {
         </h2>
       </GlitchEffect>
 
-      <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto px-4">
         {/* Demo Controls */}
-        <Card className="retro-box p-6 bg-card/80 backdrop-blur-sm card-3d-tilt">
+        <Card className="retro-box p-4 md:p-6 bg-card/80 backdrop-blur-sm card-3d-tilt hover:bg-primary/20 transition-all duration-300 w-full">
           <CardHeader>
-            <CardTitle className="text-2xl font-display uppercase flex items-center gap-2">
-              <Cpu className="w-6 h-6 text-primary" />
+            <CardTitle className="text-xl md:text-2xl font-display uppercase flex items-center gap-2">
+              <Cpu className="w-5 h-5 md:w-6 md:h-6 text-primary" />
               AI Processing Unit
             </CardTitle>
           </CardHeader>
@@ -171,7 +171,7 @@ export const InteractiveDemo = () => {
             )}
 
             {/* Controls */}
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <Button
                 onClick={handleRunDemo}
                 disabled={isRunning}
@@ -202,10 +202,10 @@ export const InteractiveDemo = () => {
         </Card>
 
         {/* Results */}
-        <Card className="retro-box p-6 bg-card/80 backdrop-blur-sm card-3d-float">
+        <Card className="retro-box p-4 md:p-6 bg-card/80 backdrop-blur-sm card-3d-tilt hover:bg-secondary/20 transition-all duration-300 w-full">
           <CardHeader>
-            <CardTitle className="text-2xl font-display uppercase flex items-center gap-2">
-              <Shield className="w-6 h-6 text-secondary" />
+            <CardTitle className="text-xl md:text-2xl font-display uppercase flex items-center gap-2">
+              <Shield className="w-5 h-5 md:w-6 md:h-6 text-secondary" />
               Offline Results
             </CardTitle>
           </CardHeader>
@@ -250,24 +250,27 @@ export const InteractiveDemo = () => {
             icon: Shield,
             title: "Data Sovereignty",
             desc: "All processing happens locally. No data leaves your device.",
-            color: "text-green-500"
+            color: "text-green-500",
+            hoverBg: "hover:bg-accent/20"
           },
           {
             icon: Zap,
             title: "One Device. All Tools.",
             desc: "Get help with coding, writing, summarization and more. All in one place.",
-            color: "text-yellow-500"
+            color: "text-yellow-500",
+            hoverBg: "hover:bg-primary/20"
           },
           {
             icon: Cpu,
             title: "Offline Ready",
             desc: "Works without internet connection. True independence.",
-            color: "text-blue-500"
+            color: "text-blue-500",
+            hoverBg: "hover:bg-secondary/20"
           }
         ].map((feature, index) => (
-          <Card key={index} className="retro-box p-4 bg-card/60 backdrop-blur-sm card-3d-tilt">
+          <Card key={index} className={`retro-box p-4 bg-card/60 backdrop-blur-sm card-3d-tilt ${feature.hoverBg} transition-all duration-300`}>
             <CardContent className="text-center space-y-3">
-              <feature.icon className={`w-8 h-8 mx-auto ${feature.color} animate-float-3d`} />
+              <feature.icon className={`w-8 h-8 mx-auto ${feature.color}`} />
               <h3 className="font-display uppercase text-sm">{feature.title}</h3>
               <p className="text-xs text-muted-foreground">{feature.desc}</p>
             </CardContent>

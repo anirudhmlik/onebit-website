@@ -66,14 +66,14 @@ const Index = () => {
               </h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
-              { icon: Cpu, title: "Offline AI", desc: "Run powerful AI models without internet connectivity" },
-              { icon: Shield, title: "Data Sovereignty", desc: "Keep your data secure and local, no cloud dependency" },
-              { icon: Zap, title: "Edge Computing", desc: "Ultra-efficient AI inference on low-power devices" }
+              { icon: Cpu, title: "Offline AI", desc: "Run powerful AI models without internet connectivity", hoverBg: "hover:bg-primary/20" },
+              { icon: Shield, title: "Data Sovereignty", desc: "Keep your data secure and local, no cloud dependency", hoverBg: "hover:bg-accent/20" },
+              { icon: Zap, title: "Edge Computing", desc: "Ultra-efficient AI inference on low-power devices", hoverBg: "hover:bg-secondary/20" }
             ].map((item, i) => (
                 <div 
                   key={i} 
-                  className={`retro-box p-6 group transition-all duration-300 bg-card hover:scale-105 hover:shadow-[0_8px_16px_rgba(0,0,0,0.2)] hover:bg-card/90 ${
-                    i === 0 ? 'card-3d-tilt' : i === 1 ? 'card-3d-float' : 'card-3d-flip'
+                  className={`retro-box p-6 group transition-all duration-300 bg-card hover:scale-105 hover:shadow-[0_8px_16px_rgba(0,0,0,0.2)] ${item.hoverBg} ${
+                    i === 0 ? 'card-3d-tilt' : i === 1 ? 'card-3d-tilt' : 'card-3d-flip'
                   } ${
                     isFeaturesVisible ? `animate-scale-in` : 'opacity-0 scale-90'
                   }`}
