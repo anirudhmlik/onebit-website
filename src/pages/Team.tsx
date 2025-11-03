@@ -49,8 +49,16 @@ const Team = () => {
       designation: "Media & Marketing Manager",
       email: "apoorvpundir21@gmail.com",
       phone: "+91 7906837751",
-      linkedin: " www.linkedin.com/in/apoorv790",
+      linkedin: "https://www.linkedin.com/in/apoorv790",
       color: "secondary"
+    },
+    {
+      name: "Vishnu Prasad",
+      designation: "Research Scientist",
+      email: "vishnuprasad@gmail.com",
+      phone: "+91 9746997684",
+      linkedin: "https://www.linkedin.com/in/",
+      color: "primary"
     }
   ];
 

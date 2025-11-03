@@ -111,7 +111,7 @@ const About = () => {
                 <CardTitle className="text-2xl font-display uppercase">Potential Use Cases</CardTitle>
               </CardHeader>
               <CardContent className="text-base space-y-4">
-                <ul className="space-y-2 list-disc list-inside">
+                <ul className="space-y-2 list-disc list-inside break-words hyphens-auto">
                   <li>Secure Data Intelligence for Strategic Defence Applications</li>
                   <li>On-Premise AI Model Development and Training within DRDO Facilities</li>
                   <li>AI-Enhanced Testing, Simulation, and Forecasting Tools</li>
