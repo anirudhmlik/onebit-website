@@ -18,30 +18,7 @@ const teamMembers = [
     },
     skills: ["AI Research", "Edge Computing", "Leadership", "Strategy"]
   },
-  {
-    name: "Dr. Priya Sharma",
-    role: "CTO",
-    bio: "Expert in quantized neural networks and hardware optimization. PhD in Computer Science with focus on low-bit AI architectures.",
-    image: "/api/placeholder/300/300",
-    social: {
-      linkedin: "https://linkedin.com/in/priyasharma",
-      github: "https://github.com/priyasharma",
-      email: "priya@onebit.ai"
-    },
-    skills: ["Quantization", "Hardware Design", "Research", "Optimization"]
-  },
-  {
-    name: "Rajesh Kumar",
-    role: "Lead Engineer",
-    bio: "Full-stack developer with expertise in AI model deployment and system architecture. Passionate about building scalable solutions.",
-    image: "/api/placeholder/300/300",
-    social: {
-      linkedin: "https://linkedin.com/in/rajeshkumar",
-      github: "https://github.com/rajeshkumar",
-      email: "rajesh@onebit.ai"
-    },
-    skills: ["Full-Stack", "AI Deployment", "System Design", "DevOps"]
-  }
+  
 ];
 
 const timeline = [

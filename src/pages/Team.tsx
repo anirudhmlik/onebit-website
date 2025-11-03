@@ -41,7 +41,7 @@ const Team = () => {
       designation: "Finance Manager",
       email: "panghalkhushboo2002@gmail.com",
       phone: "+91 9306863059",
-      inkedin: "https://www.linkedin.com/in/",
+      inkedin: "https://www.linkedin.com/in/khushboo-panghal-46720b25b/",
       color: "accent"
     },
     {
