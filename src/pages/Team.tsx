@@ -5,6 +5,30 @@ import { Mail, Phone, Linkedin } from "lucide-react";
 const Team = () => {
   const teamMembers = [
     {
+      name: "Harsh Tyagi",
+      designation: "Technical Lead",
+      email: "harshty261@gmail.com",
+      phone: "+91 7017576212",
+      linkedin: "https://www.linkedin.com/in/harsht261",
+      color: "primary"
+    },
+     {
+      name: "M Sparsh Mehra",
+      designation: "Research Scientist",
+      email: "phs247153@iitd.ac.in",
+      phone: "+91 9899938759",
+      linkedin: "https://www.linkedin.com/in/m-sparsh-mehra-b100b0225/",
+      color: "secondary"
+    },
+    {
+      name: "Vishnu Prasad",
+      designation: "Research Scientist",
+      email: "vishnuprasad@gmail.com",
+      phone: "+91 9746997684",
+      linkedin: "https://www.linkedin.com/in/",
+      color: "primary"
+    },
+    {
       name: "Khushi Singh",
       designation: "Management",
       email: "khushiravisingh2920@gmail.com",
@@ -17,16 +41,8 @@ const Team = () => {
       designation: "Management",
       email: "amanfx0004@gmail.com",
       phone: "+91 6396705027",
-      linkedin: "https://www.linkedin.com/in/",
+      linkedin: "https://www.linkedin.com/in/amanshisodiyaatcharts/",
       color: "accent"
-    },
-    {
-      name: "M Sparsh Mehra",
-      designation: "Research Scientist",
-      email: "phs247153@iitd.ac.in",
-      phone: "+91 9899938759",
-      linkedin: "https://www.linkedin.com/in/m-sparsh-mehra-b100b0225/",
-      color: "secondary"
     },
     {
       name: "Dev Yadav",
@@ -52,14 +68,6 @@ const Team = () => {
       linkedin: "https://www.linkedin.com/in/apoorv790",
       color: "secondary"
     },
-    {
-      name: "Vishnu Prasad",
-      designation: "Research Scientist",
-      email: "vishnuprasad@gmail.com",
-      phone: "+91 9746997684",
-      linkedin: "https://www.linkedin.com/in/",
-      color: "primary"
-    }
   ];
 
   const getColorClasses = (color: string) => {

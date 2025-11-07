@@ -17,8 +17,8 @@ const Contact = () => {
             Ready to explore offline AI? Let's connect.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm border-primary hover:bg-primary/20 transition-all duration-300">
+          <div className="flex justify-center">
+            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm border-primary hover:bg-primary/20 transition-all duration-300 max-w-md w-full">
               <CardHeader>
                 <CardTitle className="text-2xl font-display uppercase">Founder & CEO</CardTitle>
               </CardHeader>
@@ -55,42 +55,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className="retro-box p-8 bg-card/80 backdrop-blur-sm border-secondary hover:bg-secondary/20 transition-all duration-300">
-              <CardHeader>
-                <CardTitle className="text-2xl font-display uppercase">Co-founder & CTO</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div>
-                  <p className="text-2xl font-bold mb-1">Harsh Tyagi</p>
-                </div>
-                
-                <div className="space-y-3">
-                  <a
-                    href="mailto:harshty261@gmail.com"
-                    className="flex items-center gap-3 text-sm hover:text-secondary transition-all duration-300 hover:translate-x-1"
-                  >
-                    <Mail size={20} className="text-secondary" />
-                    harshty261@gmail.com
-                  </a>
-                  <a
-                    href="tel:+917017576212"
-                    className="flex items-center gap-3 text-sm hover:text-secondary transition-all duration-300 hover:translate-x-1"
-                  >
-                    <Phone size={20} className="text-secondary" />
-                    +91 7017576212
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/harsht261/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-sm hover:text-secondary transition-all duration-300 hover:translate-x-1"
-                  >
-                    <Linkedin size={20} className="text-secondary" />
-                    LinkedIn Profile
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
+            
           </div>
         </div>
       </section>
