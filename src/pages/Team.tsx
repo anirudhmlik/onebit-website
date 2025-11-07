@@ -6,7 +6,7 @@ const Team = () => {
   const teamMembers = [
     {
       name: "Khushi Singh",
-      designation: "Chief Managing Officer",
+      designation: "Management",
       email: "khushiravisingh2920@gmail.com",
       phone: "+91 8083480804",
       linkedin: "https://www.linkedin.com/in/khushi-singh-574a69204/",
@@ -14,7 +14,7 @@ const Team = () => {
     },
     {
       name: "Aman",
-      designation: "Chief Operations Officer",
+      designation: "Management",
       email: "amanfx0004@gmail.com",
       phone: "+91 6396705027",
       linkedin: "https://www.linkedin.com/in/",
@@ -22,7 +22,7 @@ const Team = () => {
     },
     {
       name: "M Sparsh Mehra",
-      designation: "Chief AI Scientist",
+      designation: "Research Scientist",
       email: "phs247153@iitd.ac.in",
       phone: "+91 9899938759",
       linkedin: "https://www.linkedin.com/in/m-sparsh-mehra-b100b0225/",
@@ -30,7 +30,7 @@ const Team = () => {
     },
     {
       name: "Dev Yadav",
-      designation: "Business Development Manager",
+      designation: "Management",
       email: "dev94110v@gmail.com",
       phone: "+91 7017442374",
       linkedin: "https://www.linkedin.com/in/dev-yadav-930335230//",
@@ -38,7 +38,7 @@ const Team = () => {
     },
     {
       name: "Khushboo Panghal",
-      designation: "Finance Manager",
+      designation: "Management",
       email: "panghalkhushboo2002@gmail.com",
       phone: "+91 9306863059",
       inkedin: "https://www.linkedin.com/in/khushboo-panghal-46720b25b/",
@@ -46,7 +46,7 @@ const Team = () => {
     },
     {
       name: "Apoorv Pundir",
-      designation: "Media & Marketing Manager",
+      designation: "Management",
       email: "apoorvpundir21@gmail.com",
       phone: "+91 7906837751",
       linkedin: "https://www.linkedin.com/in/apoorv790",
