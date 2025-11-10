@@ -109,7 +109,12 @@ export const TeamSection = () => {
                   <a href={member.social.twitter} className="hover:text-secondary transition-all duration-300 hover:scale-110 group">
                     <Twitter className="w-5 h-5 group-hover:animate-bounce" />
                   </a>
-                  <a href={`mailto:${member.social.email}`} className="hover:text-primary transition-all duration-300 hover:scale-110 group">
+                  <a
+                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(member.social.email)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-all duration-300 hover:scale-110 group"
+                  >
                     <Mail className="w-5 h-5 group-hover:animate-bounce" />
                   </a>
                 </div>

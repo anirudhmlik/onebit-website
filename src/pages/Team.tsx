@@ -134,7 +134,9 @@ const Team = () => {
                     
                     <div className="space-y-3">
                       <a
-                        href={`mailto:${member.email}`}
+                        href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(member.email)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className={`flex items-center gap-2 text-[7px] md:text-sm ${colors.linkHover} transition-all duration-300 hover:translate-x-1 whitespace-nowrap`}
                       >
                         <Mail size={20} className={`${colors.icon} flex-shrink-0`} />

@@ -29,7 +29,9 @@ const Contact = () => {
                 
                 <div className="space-y-3">
                   <a
-                    href="mailto:ceo@onebit-ai.in"
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=ceo%40onebit-ai.in"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-3 text-sm hover:text-primary transition-all duration-300 hover:translate-x-1"
                   >
                     <Mail size={20} className="text-primary" />
