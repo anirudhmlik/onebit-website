@@ -32,9 +32,14 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "OneBitAI",
+      "alternateName": "onebit-ai.in",
       "url": "https://onebit-ai.in",
       "logo": "https://onebit-ai.in/onebit-logo-with-background.jpg",
       "description": "OneBitAI develops portable, low-power AI units that run offline for text, image, and code generation.",
+      "brand": {
+        "@type": "Brand",
+        "name": "OneBitAI"
+      },
       "sameAs": []
     }
     </script>
@@ -43,10 +48,20 @@
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "OneBitAI",
+      "alternateName": "onebit-ai.in",
       "url": "https://onebit-ai.in",
       "publisher": {
         "@type": "Organization",
-        "name": "OneBitAI"
+        "name": "OneBitAI",
+        "brand": {
+          "@type": "Brand",
+          "name": "OneBitAI"
+        }
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://onebit-ai.in/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
       }
     }
     </script>
