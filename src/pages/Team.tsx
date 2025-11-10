@@ -25,7 +25,7 @@ const Team = () => {
       designation: "Research Scientist",
       email: "vishnuprasad@gmail.com",
       phone: "+91 9746997684",
-      linkedin: "https://www.linkedin.com/in/",
+      linkedin: "https://www.linkedin.com/in/vishnuprasad-pradeepkumar-reshma/",
       color: "primary"
     },
     {
@@ -57,7 +57,7 @@ const Team = () => {
       designation: "Management",
       email: "panghalkhushboo2002@gmail.com",
       phone: "+91 9306863059",
-      inkedin: "https://www.linkedin.com/in/khushboo-panghal-46720b25b/",
+      linkedin: "https://www.linkedin.com/in/khushboo-panghal-46720b25b/",
       color: "accent"
     },
     {
