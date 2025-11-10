@@ -26,7 +26,7 @@ const Team = () => {
       email: "vishnuprasad@gmail.com",
       phone: "+91 9746997684",
       linkedin: "https://www.linkedin.com/in/vishnuprasad-pradeepkumar-reshma/",
-      color: "primary"
+      color: "accent"
     },
     {
       name: "Khushi Singh",
@@ -42,7 +42,7 @@ const Team = () => {
       email: "amanfx0004@gmail.com",
       phone: "+91 6396705027",
       linkedin: "https://www.linkedin.com/in/amanshisodiyaatcharts/",
-      color: "accent"
+      color: "secondary"
     },
     {
       name: "Dev Yadav",
@@ -50,7 +50,7 @@ const Team = () => {
       email: "dev94110v@gmail.com",
       phone: "+91 7017442374",
       linkedin: "https://www.linkedin.com/in/dev-yadav-930335230//",
-      color: "primary"
+      color: "accent"
     },
     {
       name: "Khushboo Panghal",
@@ -58,7 +58,7 @@ const Team = () => {
       email: "panghalkhushboo2002@gmail.com",
       phone: "+91 9306863059",
       linkedin: "https://www.linkedin.com/in/khushboo-panghal-46720b25b/",
-      color: "accent"
+      color: "primary"
     },
     {
       name: "Apoorv Pundir",
