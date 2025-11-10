@@ -1,8 +1,15 @@
 {
   "rewrites": [
     {
-      "source": "/((?!favicon|robots|sitemap|.*\\.(ico|png|jpg|jpeg|svg|webp|mp4|webmanifest)).*)",
-      "destination": "/"
+      "source": "/(.*)",
+      "destination": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": "text/html"
+        }
+      ]
     }
   ],
   "headers": [
