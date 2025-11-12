@@ -21,9 +21,9 @@ const Team = () => {
       color: "secondary"
     },
     {
-      name: "Vishnu Prasad",
+      name: "Vishnuprasad",
       designation: "Research Scientist",
-      email: "vishnuprasad@gmail.com",
+      email: "vishnuvppr@gmail.com",
       phone: "+91 9746997684",
       linkedin: "https://www.linkedin.com/in/vishnuprasad-pradeepkumar-reshma/",
       color: "accent"
